@@ -1,0 +1,58 @@
+<html ng-app="myapp">
+
+<head>
+
+	<style>
+
+	/* {{hoge}}を表示させないためのもの */
+	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		display: none !important;
+	}
+
+	</style>
+
+</head>
+<body>
+
+	<section ng-controller="MainCtrl" ng-cloak>
+
+	<div>{{test}}<div>
+
+	<div id="div_test"></div>
+
+	<div>a:{{a}}, c:{{c}}</div>
+	<button ng-click="changeValueOfA()">change value of A</button>
+
+	<button ng-click="clickHandler()">click me!</button>
+
+	<div>
+		<p>{{apiData.itemId}}</p>
+		<p>{{apiData.itemName}}</p>
+		<p>{{apiData.bonusPoint}}</p>
+		<div ng-repeat="comment in apiData.commentList">
+			<p>{{comment}}</p>
+		<div>
+	</div>
+
+	</section>
+	
+	<!-- jquery -->
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<!-- angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="./main.js"></script>
+
+	<script>
+
+	//任意のグローバルオブジェクト
+	var global = {
+		someFunc : function(){
+			alert('someFunc by global object');
+		}
+	};
+
+	</script>
+
+</body>
+</html>
