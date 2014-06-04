@@ -1,3 +1,12 @@
+/*
+TODO
+
+ng-route
+ng-factory
+angular-plugins
+
+*/
+
 var myApp = angular.module('myapp',[]); //'app'だとダメぽい・・・
 
 myApp.controller('MainCtrl', ['$scope', function($scope) {
@@ -74,7 +83,7 @@ myApp.directive('testdirectiveattr', function(){
 		return{
 			//E=要素, A=属性
 			restrict: 'A',
-			//優先度
+			//優先度	
 			// priority:0,
 			//テンプレ
 			template: '<div>this is testDirectiveAttr</div>',
