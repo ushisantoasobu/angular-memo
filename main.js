@@ -54,7 +54,19 @@ myApp.directive('testdirectiveelem', function(){ //ここも小文字じゃな�
 			template: '<div>this is testDirectiveElem</div>',
 			// templateUrl: './directiveTest.html',
 			//置き換えるか or 要素の中にいれるか
-			replace: true
+			replace: true,
+			//(true) or (false) or ({@, =, &})
+			scope: true,
+			//
+			link: function(scope, element, attrs){
+				
+				scope.point = 0;
+
+				element.bind('click', function(){
+					scope.point++;
+					alert(scope.point);
+				});
+			}
 		};
 });
 
@@ -67,6 +79,15 @@ myApp.directive('testdirectiveattr', function(){
 			//テンプレ
 			template: '<div>this is testDirectiveAttr</div>',
 			//置き換えるか or 要素の中にいれるか
-			replace: true
+			replace: true,
+			//(true) or (false) or ({@, =, &})
+			scope: true,
+			//
+			link: function(scope, element, attrs){
+				
+				element.bind('click', function(){
+					global.someFunc();					
+				});
+			}
 		};
 });
