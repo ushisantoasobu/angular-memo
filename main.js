@@ -2,8 +2,9 @@
 TODO
 
 ng-route
-ng-factory
+service, factory
 angular-plugins
+
 
 */
 
@@ -47,8 +48,23 @@ myApp.controller('MainCtrl', ['$scope', function($scope) {
 	};
 	$scope.apiData = apiReturnObj;
 
+	$scope.callFromOutside = function(){
+		alert("this is called from outside!");
+	}
+
 }]);
 
+
+//以下factory
+
+myApp.factory('MainFactory', function(){
+	return {
+		'position' : 'MF',
+		'kick' : function(){
+			alert('GOOOOOOOOOAL!!!!');
+		}
+	}
+});
 
 
 //以下カスタムディレクティブ	

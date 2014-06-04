@@ -14,7 +14,9 @@
 </head>
 <body>
 
-	<section ng-controller="MainCtrl" ng-cloak>
+	<!-- id="ngCtrl" => controller内にアクセスするため -->
+	<!-- ng-cloak => {{hoge}}を表示させないためのもの -->
+	<section ng-controller="MainCtrl" id="ngCtrl" ng-cloak>
 
 	<div>{{test}}<div>
 
@@ -24,6 +26,8 @@
 	<button ng-click="changeValueOfA()">change value of A</button>
 
 	<button ng-click="clickHandler()">click me!</button>
+
+	<button onclick="callFuncInAngularCtrl()">callFuncInAngularCtrl!</button>
 
 	<div>
 		<p>{{apiData.itemId}}</p>
@@ -56,6 +60,16 @@
 			alert('someFunc by global object');
 		}
 	};
+
+	/**
+	 * angularのservice内のメソッドを呼び出す
+	 */
+	var callFuncInAngularCtrl = function(){
+		var _scope = angular.element(ngCtrl).scope();
+		_scope.$apply(function(){
+			angular.element(ngCtrl).scope().callFromOutside();
+		});
+	}
 
 	</script>
 
