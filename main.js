@@ -1,13 +1,3 @@
-/*
-TODO
-
-ng-route
-service, factory
-angular-plugins
-
-
-*/
-
 var myApp = angular.module('myapp',['ui.router']); //'app'だとダメぽい・・・
 
 myApp.controller('MainCtrl', ['$scope', function($scope) {
