@@ -7,7 +7,13 @@ myApp.controller('MainCtrl', ['$scope', function($scope) {
 
 	$scope.a = 39;
 	$scope.b = 12;
-	$scope.c = $scope.a + $scope.b; //aやbの値に変更が入ったとき、cの値は自動的に反映されるのか => それは無理
+	$scope.c = $scope.a + $scope.b; //aやbの値に変更が入ったとき、cの値は自動的に反映されるのか => それは無理、下の$watchを使うこと
+	
+	var watchValueA = function(){
+		$scope.c = $scope.a + $scope.b
+	}
+	$scope.$watch(function(){return $scope.a}, watchValueA);
+
 
 	//jQueryも使える
 	var jQuery = angular.element;
@@ -15,7 +21,7 @@ myApp.controller('MainCtrl', ['$scope', function($scope) {
 
 	//
 	$scope.changeValueOfA = function(){
-		$scope.a = 3;
+		$scope.a--;
 	};
 
 	//
