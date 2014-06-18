@@ -12,7 +12,8 @@ myApp.controller('MainCtrl', ['$scope', function($scope) {
 	var watchValueA = function(){
 		$scope.c = $scope.a + $scope.b
 	}
-	$scope.$watch(function(){return $scope.a}, watchValueA);
+	// $scope.$watch(function(){return $scope.a}, watchValueA);
+	$scope.$watch("a", watchValueA);
 
 
 	//jQueryも使える
